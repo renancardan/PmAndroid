@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "748856239394",
+    "project_id": "cityhand-7fcba",
+    "storage_bucket": "cityhand-7fcba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748856239394:android:33a9768d22cefb1e34317b",
+        "android_client_info": {
+          "package_name": "com.cityhand"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748856239394-k5vm9s57k5q141reb29u720n0v9kn9dl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoWAAecTWljXtapHdRudI32xrMINSqTsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748856239394-k5vm9s57k5q141reb29u720n0v9kn9dl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "748856239394-nhp6sc4u15441vk9i5gg7aeeti7sks9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.cityhand"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

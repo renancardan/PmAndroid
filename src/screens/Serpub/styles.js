@@ -12,7 +12,6 @@ export const CaixaTotal = styled.View`
         display: flex; 
         flex-direction: column;
         align-items: center;
-        flex-wrap: wrap;
         justify-content: center;
 `;
 
@@ -21,6 +20,18 @@ export const CaixaDados = styled.View`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+`;
+
+export const CaixaNews = styled.TouchableOpacity`
+        display: flex; 
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 350px;
+        height: 130px;
+        background-color: #fff;
+        border-radius:10px;
+        margin-top:20px;
 `;
 
 export const CaixaDasat = styled.View`
@@ -34,6 +45,32 @@ export const CaixaDasat = styled.View`
     border-radius:10px;
 `;
 
+export const CaixaNewsImg = styled.View`
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin:5px;
+    border-radius:5px;
+`;
+export const CaixaNewsInfor = styled.View`
+    width: 200px;
+    height: 100px;
+    display: flex;
+    margin:5px;
+    justify-content: space-between;
+    
+    flex-direction: column;
+`;
+
+export const CaixaDasNot =  styled.View`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between; 
+    width: 350px;
+    border-radius:10px;
+`;
+
 export const CaixaArea = styled.TouchableOpacity`
     display: flex;
     flex-direction: column;
@@ -44,9 +81,6 @@ export const CaixaArea = styled.TouchableOpacity`
     background-color: #fff;
     margin:20px;
     border-radius:10px;
-    
-    
-
 `;
 
 export const BotaoAtualizar = styled.TouchableOpacity`
@@ -68,6 +102,16 @@ export const TextTitulo = styled.Text`
     margin-left: 10px;
 `;
 
+export const TextTituloNews = styled.Text`
+    font-size: 15px;
+    color: #000;
+    margin-left: 10px;
+`;
+export const TextDataNews = styled.Text`
+    font-size: 12px;
+    color: #000;
+    margin-left: 10px;
+`;
 export const TextAviso = styled.Text`
     font-size: 20px;
     color: red;
@@ -78,6 +122,11 @@ export const Textnome = styled.Text`
     font-size: 14px;
     color: #000;
     margin-bottom: 10px;
+`;
+
+export const TextNoticia = styled.Text`
+    font-size: 20px;
+    color: #fff;
 `;
 
 export const TextInfo = styled.Text`

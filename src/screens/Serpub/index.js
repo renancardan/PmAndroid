@@ -24,6 +24,13 @@ import {
     TituAviso,
     CaixaAtu, 
     TextAtu,
+    CaixaNews,
+    CaixaDasNot,
+    TextNoticia,
+    CaixaNewsImg,
+    CaixaNewsInfor,
+    TextDataNews,
+    TextTituloNews
 } from './styles';
 import  NetInfo from  "@react-native-community/netinfo" ;
 import Atemdimento from '../../assets/atendimento.svg';
@@ -34,7 +41,7 @@ import Geolocation from 'react-native-geolocation-service';
 import Geocoder from 'react-native-geocoding';
 import { request, PERMISSIONS } from 'react-native-permissions';
 import { useNavigation } from '@react-navigation/native';
-import { Text, Linking, Modal, StyleSheet, View, ImageBackground  } from 'react-native';
+import { Text, Linking, Modal, StyleSheet, View, ImageBackground, ScrollView , FlatList, Image } from 'react-native';
 import CityLogo from '../../assets/logomarca.svg';
 import PushNotification from "react-native-push-notification";
 
@@ -170,9 +177,10 @@ export default () => {
                           PushNotification.localNotification({
                             channelId: "not1",
                             autoCancel: true,
+                            largeIcon:"icon",
                             bigText:
                               'This is local notification demo in React Native app. Only shown, when expanded.',
-                            subText: 'Local Notification Demo',
+                            subText: 'Mensagens do 15° BPM',
                             title: 'Chegou mensagem pra vc',
                             message: '',
                             vibrate: true,
@@ -371,8 +379,103 @@ export default () => {
                         <Chat width="80px" height="80px" />
                         <Textnome>Chat</Textnome>
                         </CaixaArea>
-                        
-                       
+                        <TextNoticia>Notícias Policiais</TextNoticia>
+                        <ScrollView>
+                          <CaixaDasNot>
+                         
+                      <CaixaNews>
+                      <CaixaNewsImg>
+                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
+                      </CaixaNewsImg>
+                      <CaixaNewsInfor>
+                          <TextTituloNews>
+                            Acidente de trânsito provocam 17 mortos
+                          </TextTituloNews>
+                          <TextDataNews>
+                            08/08/2021
+                          </TextDataNews>
+
+                      </CaixaNewsInfor>
+                       </CaixaNews>
+
+                       <CaixaNews>
+                      <CaixaNewsImg>
+                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
+                      </CaixaNewsImg>
+                      <CaixaNewsInfor>
+                          <TextTituloNews>
+                            Acidente de trânsito provocam 17 mortos
+                          </TextTituloNews>
+                          <TextDataNews>
+                            08/08/2021
+                          </TextDataNews>
+
+                      </CaixaNewsInfor>
+                       </CaixaNews>
+
+                       <CaixaNews>
+                      <CaixaNewsImg>
+                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
+                      </CaixaNewsImg>
+                      <CaixaNewsInfor>
+                          <TextTituloNews>
+                            Acidente de trânsito provocam 17 mortos
+                          </TextTituloNews>
+                          <TextDataNews>
+                            08/08/2021
+                          </TextDataNews>
+
+                      </CaixaNewsInfor>
+                       </CaixaNews>
+
+
+                       <CaixaNews>
+                      <CaixaNewsImg>
+                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
+                      </CaixaNewsImg>
+                      <CaixaNewsInfor>
+                          <TextTituloNews>
+                            Acidente de trânsito provocam 17 mortos
+                          </TextTituloNews>
+                          <TextDataNews>
+                            08/08/2021
+                          </TextDataNews>
+
+                      </CaixaNewsInfor>
+                       </CaixaNews>
+                       <CaixaNews>
+                      <CaixaNewsImg>
+                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
+                      </CaixaNewsImg>
+                      <CaixaNewsInfor>
+                          <TextTituloNews>
+                            Acidente de trânsito provocam 17 mortos
+                          </TextTituloNews>
+                          <TextDataNews>
+                            08/08/2021
+                          </TextDataNews>
+
+                      </CaixaNewsInfor>
+                       </CaixaNews>
+                       <CaixaNews>
+                      <CaixaNewsImg>
+                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
+                      </CaixaNewsImg>
+                      <CaixaNewsInfor>
+                          <TextTituloNews>
+                            Acidente de trânsito provocam 17 mortos
+                          </TextTituloNews>
+                          <TextDataNews>
+                            08/08/2021
+                          </TextDataNews>
+
+                      </CaixaNewsInfor>
+                       </CaixaNews>
+
+                          </CaixaDasNot>
+                          </ScrollView>
+
+
                           
                    
                 </CaixaTotal>
@@ -445,6 +548,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
     color:"blue"
-  }
+  },
+  ImageVer:{
+    width:100,
+    height:100,
+    borderRadius:10,
+  },
 });
 

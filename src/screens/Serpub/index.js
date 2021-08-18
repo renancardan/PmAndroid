@@ -76,6 +76,18 @@ export default () => {
     const [TemAvi, setTemAvi] = useState(false);
     const [Version, setVersion] = useState(1);
     const [Atu, setAtu] = useState({});
+    const [ListNot, setListNot] = useState([
+      {id:1, titulo:"Casa Arrombada", data:"11/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:2, titulo:"Roubo de Carro", data:"16/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:3, titulo:"Roubo de casa", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:4, titulo:"Assalto de lojas", data:"16/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:5, titulo:"Assalto com armas", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:6, titulo:"Assalto com Faca", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:7, titulo:"Assalto com Moto", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:8, titulo:"Assalto com Luz", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+      {id:9, titulo:"Assalto com  marte", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
+    ])
+    
 
 
                         
@@ -233,7 +245,7 @@ export default () => {
 
                             } else {
                               await setLoading(false);
-                              navigation.push('LiveStack');
+                              navigation.navigate('LiveStack');
                               Api.VizualiCon(Ocorre, QuantMsgT);
                             }
 
@@ -244,8 +256,15 @@ export default () => {
                             await setmodalVer(false);
                             await setLoading(true);
                             await Api.EnviandoEntradaChat(Log, Lat, cidade, estado, Nome, setLoading, setOcorre, setEnt, Varia );
-                            await navigation.push('LiveStack');
+                            await navigation.navigate('LiveStack');
                             
+                            
+                          }
+
+                          const VerNoticia = async (id)=>{
+                            navigation.navigate('NotStack', {
+                              screen: id,
+                            });
                             
                           }
 
@@ -380,104 +399,33 @@ export default () => {
                         <Textnome>Chat</Textnome>
                         </CaixaArea>
                         <TextNoticia>Notícias Policiais</TextNoticia>
-                        <ScrollView>
+
+                      
                           <CaixaDasNot>
-                         
-                      <CaixaNews>
-                      <CaixaNewsImg>
-                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
-                      </CaixaNewsImg>
-                      <CaixaNewsInfor>
-                          <TextTituloNews>
-                            Acidente de trânsito provocam 17 mortos
-                          </TextTituloNews>
-                          <TextDataNews>
-                            08/08/2021
-                          </TextDataNews>
-
-                      </CaixaNewsInfor>
-                       </CaixaNews>
-
-                       <CaixaNews>
-                      <CaixaNewsImg>
-                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
-                      </CaixaNewsImg>
-                      <CaixaNewsInfor>
-                          <TextTituloNews>
-                            Acidente de trânsito provocam 17 mortos
-                          </TextTituloNews>
-                          <TextDataNews>
-                            08/08/2021
-                          </TextDataNews>
-
-                      </CaixaNewsInfor>
-                       </CaixaNews>
-
-                       <CaixaNews>
-                      <CaixaNewsImg>
-                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
-                      </CaixaNewsImg>
-                      <CaixaNewsInfor>
-                          <TextTituloNews>
-                            Acidente de trânsito provocam 17 mortos
-                          </TextTituloNews>
-                          <TextDataNews>
-                            08/08/2021
-                          </TextDataNews>
-
-                      </CaixaNewsInfor>
-                       </CaixaNews>
-
-
-                       <CaixaNews>
-                      <CaixaNewsImg>
-                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
-                      </CaixaNewsImg>
-                      <CaixaNewsInfor>
-                          <TextTituloNews>
-                            Acidente de trânsito provocam 17 mortos
-                          </TextTituloNews>
-                          <TextDataNews>
-                            08/08/2021
-                          </TextDataNews>
-
-                      </CaixaNewsInfor>
-                       </CaixaNews>
-                       <CaixaNews>
-                      <CaixaNewsImg>
-                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
-                      </CaixaNewsImg>
-                      <CaixaNewsInfor>
-                          <TextTituloNews>
-                            Acidente de trânsito provocam 17 mortos
-                          </TextTituloNews>
-                          <TextDataNews>
-                            08/08/2021
-                          </TextDataNews>
-
-                      </CaixaNewsInfor>
-                       </CaixaNews>
-                       <CaixaNews>
-                      <CaixaNewsImg>
-                      <Image  source={{uri:`https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750`}} style={styles.ImageVer } />
-                      </CaixaNewsImg>
-                      <CaixaNewsInfor>
-                          <TextTituloNews>
-                            Acidente de trânsito provocam 17 mortos
-                          </TextTituloNews>
-                          <TextDataNews>
-                            08/08/2021
-                          </TextDataNews>
-
-                      </CaixaNewsInfor>
-                       </CaixaNews>
-
+                         <FlatList 
+                         data={ListNot}
+                         keyExtractor={item => item.id.toString()}
+                         renderItem={({ item }) => 
+                         <CaixaNews onPress={()=>VerNoticia(item.id)} >
+                         <CaixaNewsImg>
+                         <Image  source={{uri:item.img}} style={styles.ImageVer } />
+                         </CaixaNewsImg>
+                         <CaixaNewsInfor>
+                             <TextTituloNews>
+                               {item.titulo}
+                             </TextTituloNews>
+                             <TextDataNews>
+                               {item.data}
+                             </TextDataNews>
+   
+                         </CaixaNewsInfor>
+                          </CaixaNews>
+                        
+                        }
+                         />
+                      
                           </CaixaDasNot>
-                          </ScrollView>
-
-
-                          
-                   
+ 
                 </CaixaTotal>
                 }
        

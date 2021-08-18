@@ -7,6 +7,7 @@ import Avisoloc from '../screens/Avisoloc';
 import Localizar from '../screens/Localizar';
 import ServPub from '../screens/Serpub'
 import LiveStack from '../stacks/LiveStack';
+import NotStack from '../stacks/NotStack'
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ export default () => (
         <Stack.Screen name="Localizar" component={Localizar} />
         <Stack.Screen name="ServPub" component={ServPub} />
         <Stack.Screen name="LiveStack" component={LiveStack} />
+        <Stack.Screen name="NotStack" component={NotStack} />
 
     </Stack.Navigator>
     );

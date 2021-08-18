@@ -68,6 +68,7 @@ export const CaixaDasNot =  styled.View`
     align-items: center;
     justify-content:space-between; 
     width: 350px;
+    height: 300px;
     border-radius:10px;
 `;
 

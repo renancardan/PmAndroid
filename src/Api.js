@@ -152,6 +152,7 @@ export default {
       idvitima: id,
       localizacao:{lat: Lat, lng: Log},
       userChat:res,
+      condicionais:[],
       mensagem:[{
         autor:id,
         nome: Nome,
@@ -542,6 +543,7 @@ export default {
       instituicao:"Polícia Militar",
       nomevitima: Nome,
       idvitima: id,
+      condicionais:[],
       localizacao:{lat: Lat,  lng: Log},
       userChat:res,
       mensagem:[{

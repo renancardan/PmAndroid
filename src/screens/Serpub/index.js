@@ -30,7 +30,8 @@ import {
     CaixaNewsImg,
     CaixaNewsInfor,
     TextDataNews,
-    TextTituloNews
+    TextTituloNews,
+    CaixaTitNot,
 } from './styles';
 import  NetInfo from  "@react-native-community/netinfo" ;
 import Atemdimento from '../../assets/atendimento.svg';
@@ -44,7 +45,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, Linking, Modal, StyleSheet, View, ImageBackground, ScrollView , FlatList, Image } from 'react-native';
 import CityLogo from '../../assets/logomarca.svg';
 import PushNotification from "react-native-push-notification";
-
+import Datand from '../../components/datando';
 
 import Api from '../../Api';
 
@@ -76,17 +77,8 @@ export default () => {
     const [TemAvi, setTemAvi] = useState(false);
     const [Version, setVersion] = useState(1);
     const [Atu, setAtu] = useState({});
-    const [ListNot, setListNot] = useState([
-      {id:1, titulo:"Casa Arrombada", data:"11/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:2, titulo:"Roubo de Carro", data:"16/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:3, titulo:"Roubo de casa", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:4, titulo:"Assalto de lojas", data:"16/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:5, titulo:"Assalto com armas", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:6, titulo:"Assalto com Faca", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:7, titulo:"Assalto com Moto", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:8, titulo:"Assalto com Luz", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-      {id:9, titulo:"Assalto com  marte", data:"15/08/2021", img:"https://files.nsctotal.com.br/s3fs-public/styles/paragraph_image_style/public/graphql-upload-files/acidente%2520BR%2520470%2520quatro%2520mortes_7%5B1%5D_2.jpg?Oe8PUUnOe0ur2tvKsbDlvMFKSrYNrm15&itok=IJ_uwc1K&width=750"},
-    ])
+    const [ListNot, setListNot] = useState([]);
+  
     
 
 
@@ -112,6 +104,7 @@ export default () => {
                             TelefoneApp();
                             pegarDados(); 
                             LevarTemp(); 
+                            ListandoNoti();
                           }, [])
 
                           useEffect(() => {
@@ -152,12 +145,17 @@ export default () => {
                           GuardaVari();              
                          }, [Varia]);
 
+                       
+
                          const Atualizando = ()=>{
                            Api.Atualiza(cidade, setAtu);
                          }
 
                          const Avisando = ()=>{
                            Api.AvisoAppCli(cidade, estado, setAviMsg, setTemAvi);
+                         }
+                         const ListandoNoti = ()=>{
+                           Api.ListNoti( cidade, estado, setListNot );
                          }
 
                        
@@ -398,7 +396,10 @@ export default () => {
                         <Chat width="80px" height="80px" />
                         <Textnome>Chat</Textnome>
                         </CaixaArea>
+                       
                         <TextNoticia>Notícias Policiais</TextNoticia>
+                      
+                        
 
                       
                           <CaixaDasNot>
@@ -415,7 +416,9 @@ export default () => {
                                {item.titulo}
                              </TextTituloNews>
                              <TextDataNews>
-                               {item.data}
+                               <Datand 
+                               data={item.data}
+                              />
                              </TextDataNews>
    
                          </CaixaNewsInfor>
@@ -498,8 +501,8 @@ const styles = StyleSheet.create({
     color:"blue"
   },
   ImageVer:{
-    width:100,
-    height:100,
+    width:120,
+    height:120,
     borderRadius:10,
   },
 });

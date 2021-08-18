@@ -498,6 +498,68 @@ export default {
    
   },
 
+  ListNoti: async (cidade, estado, setListNot) => {
+    const user =  await auth().currentUser;
+    const id = user.uid;
+   return await firestore().collection("noticias")  
+    .where("ativo", "==", true)
+    .where("cidade", "==", cidade)
+    .where("estado", "==", estado)
+    .onSnapshot((querySnapshot) => {
+      var res = []; 
+      querySnapshot.forEach((doc) => {
+          res.push({
+            id: doc.id,
+            data: doc.data().dataDanoti,
+            titulo: doc.data().TituloAnun,
+            img:doc.data().foto1,
+           
+          });    
+          
+      });
+
+      res.sort((a,b)=>{
+        if(a.data < b.data) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+    
+      setListNot(res);
+      
+
+        });
+  },
+
+  ListNoticia: async (IdNot, setNotica) => {
+  
+    const user =  await auth().currentUser;
+    const id = user.uid;
+   await firestore().collection("noticias")  
+    .doc(IdNot)
+    .onSnapshot((doc) => {
+      setNotica(doc.data());
+  });
+
+  var sfDocRef = firestore().collection("noticias").doc(IdNot);
+  return firestore().runTransaction((transaction) => {
+    // This code may get re-run multiple times if there are conflicts.
+    return transaction.get(sfDocRef).then((sfDoc) => {
+        if (!sfDoc.exists) {
+           console.log("Document does not exist!");
+        } 
+
+        var newVisitas = sfDoc.data().visitas + 1;
+        transaction.update(sfDocRef, { visitas: newVisitas });
+    });
+}).then(() => {
+    console.log("Transaction successfully committed!");
+}).catch((error) => {
+    console.log("Transaction failed: ", error);
+});
+  },
+
   AnaliseEntrada: async (cidade, estado) => {
     const user =  await auth().currentUser;
     const id = user.uid;

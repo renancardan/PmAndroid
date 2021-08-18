@@ -29,7 +29,6 @@ export const CaixaNews = styled.TouchableOpacity`
         justify-content: center;
         width: 350px;
         height: 130px;
-        background-color: #fff;
         border-radius:10px;
         margin-top:20px;
 `;
@@ -46,20 +45,33 @@ export const CaixaDasat = styled.View`
 `;
 
 export const CaixaNewsImg = styled.View`
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     display: flex;
-    margin:5px;
     border-radius:5px;
+    background-color: #FFF;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+`;
+export const CaixaTituData = styled.View`
+    width: 120px;
+    height: 120px;
+    display: flex;
+    border-radius:5px;
+    background-color: #fff;
 `;
 export const CaixaNewsInfor = styled.View`
     width: 200px;
-    height: 100px;
+    height: 110px;
     display: flex;
-    margin:5px;
+    margin:-10px;
+    padding: 10px;
     justify-content: space-between;
-    
+    background-color: #FFF;
     flex-direction: column;
+    border-radius:10px;
+    z-index: -1;
 `;
 
 export const CaixaDasNot =  styled.View`
@@ -107,6 +119,8 @@ export const TextTituloNews = styled.Text`
     font-size: 15px;
     color: #000;
     margin-left: 10px;
+    flex-wrap: wrap;
+    
 `;
 export const TextDataNews = styled.Text`
     font-size: 12px;
@@ -149,6 +163,15 @@ export const CaixaAti = styled.View`
     align-items: center;
 `;
 export const CaixaTitulo = styled.View`  
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #FFF;
+`;
+export const CaixaTitNot = styled.View`  
     width: 100%;
     height: 100px;
     display: flex;

@@ -23,7 +23,11 @@ export default ({route}) => {
  
  const [Notica, setNotica] = useState({})
  const [IdNot, setIdNot] = useState(route.params.screen)
- const [Datai, setDatai] = useState("")
+ const [Datai, setDatai] = useState("");
+ const [Img1, setImg1] = useState("");
+ const [Img2, setImg2] = useState("");
+ const [Img3, setImg3] = useState("");
+ const [Img4, setImg4] = useState("");
 
  useEffect(() => {
   vernoticia();
@@ -35,6 +39,7 @@ export default ({route}) => {
 useEffect (() => { 
   YellowBox.ignoreWarnings ([
     'Warning: componentWillMount has been renamed',
+    "Warning: Can't perform a React state update on an unmounted component",
 ]); 
 }, [])
 
@@ -42,6 +47,33 @@ useEffect (() => {
    {Notica !== {} &&
    tempo(Notica.dataDanoti);
    }
+   if(Notica.foto1 === ""){
+    setImg1("https://pm.ssp.ma.gov.br/wp-content/uploads/2018/04/logo-policia-militar-site.png");
+   } else{
+    setImg1(Notica.foto1);
+    
+   }
+   if(Notica.foto2 === ""){
+    setImg2("https://pm.ssp.ma.gov.br/wp-content/uploads/2018/04/logo-policia-militar-site.png");
+    } else{
+    setImg2(Notica.foto2);
+   
+    }
+
+    if(Notica.foto3 === ""){
+      setImg3("https://pm.ssp.ma.gov.br/wp-content/uploads/2018/04/logo-policia-militar-site.png");
+      } else{
+      setImg3(Notica.foto3);
+     
+      }
+
+      if(Notica.foto4 === ""){
+        setImg4("https://pm.ssp.ma.gov.br/wp-content/uploads/2018/04/logo-policia-militar-site.png");
+        } else{
+        setImg4(Notica.foto4);
+       
+        }
+
 
  }, [Notica])
 
@@ -132,7 +164,7 @@ useEffect (() => {
              shadowColor="#051934"
              overlayBackgroundColor=""
              source={{
-               uri:Notica.foto1
+               uri:Img1
                  
              }}
            />
@@ -149,7 +181,7 @@ useEffect (() => {
             shadowColor="#051934"
             overlayBackgroundColor=""
             source={{
-              uri:Notica.foto2
+              uri:Img2
                 
             }}
           />
@@ -165,7 +197,7 @@ useEffect (() => {
             shadowColor="#051934"
             overlayBackgroundColor=""
             source={{
-              uri:Notica.foto3 
+              uri:Img3
                 
             }}
           />
@@ -181,7 +213,7 @@ useEffect (() => {
             shadowColor="#051934"
             overlayBackgroundColor=""
             source={{
-              uri:Notica.foto4
+              uri:Img4
                 
             }}
           />
